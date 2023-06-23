@@ -14,6 +14,8 @@ function App() {
           uid: user.uid,
           updateProfile: () => updateProfile(user, { displayName: user.displayName }),
         });
+      } else {
+        setUserObj(null)
       }
       setInit(true);
     });
@@ -27,7 +29,7 @@ function App() {
     });
   }
   return (
-    <>
+    <div>
       {init ? (
         <AppRouter
           refreshUser={refreshUser}
@@ -37,7 +39,7 @@ function App() {
       ) : (
         "Initializing..."
       )}
-    </>
+    </div>
   );
 }
 

@@ -9,21 +9,22 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
     <Router>
       {isLoggedIn && <Navigation userObj={userObj} />}
-      <Routes>
-        {isLoggedIn ? (
-          <>
-            <Route path="/" element={<Home userObj={userObj} />} />
-            <Route path="/profile" element={<Profile userObj={userObj} refreshUser={refreshUser} />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Auth />} />
-          </>
-        )}
-
-      </Routes>
+      <div className="router">
+        <Routes>
+          {isLoggedIn ? (
+            <>
+              <Route path="/" element={<Home userObj={userObj} />} />
+              <Route path="/profile" element={<Profile userObj={userObj} refreshUser={refreshUser} />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Auth />} />
+            </>
+          )}
+        </Routes>
+      </div>
     </Router>
   );
 };
 
-export default AppRouter
+export default AppRouter;
